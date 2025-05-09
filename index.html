@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart IoT IDS Simulation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Smart IoT IDS Simulation</h1>
+            <div class="auth-section">
+                <input type="text" id="username" placeholder="Username">
+                <input type="password" id="password" placeholder="Password">
+                <button onclick="login()">Login</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="devices-grid">
+                <!-- Smart CCTV Section -->
+                <div class="device-card" id="cctv-card">
+                    <h2>Smart CCTV</h2>
+                    <div class="camera-feed">
+                        <video id="camera-feed" width="320" height="240" autoplay></video>
+                    </div>
+                    <div class="controls">
+                        <button onclick="toggleCCTV()">Toggle CCTV</button>
+                        <button onclick="startRecording()">Start Recording</button>
+                        <button onclick="stopRecording()">Stop Recording</button>
+                    </div>
+                    <div class="status">
+                        <p>Status: <span id="cctv-status">Offline</span></p>
+                    </div>
+                </div>
+
+                <!-- Smart Light Section -->
+                <div class="device-card" id="light-card">
+                    <h2>Smart Light</h2>
+                    <div class="light-controls">
+                        <button onclick="toggleLight()">Toggle Light</button>
+                        <div class="schedule-controls">
+                            <input type="time" id="light-on-time">
+                            <input type="time" id="light-off-time">
+                            <button onclick="setLightSchedule()">Set Schedule</button>
+                        </div>
+                    </div>
+                    <div class="status">
+                        <p>Status: <span id="light-status">Off</span></p>
+                    </div>
+                </div>
+
+                <!-- Motion Detector Section -->
+                <div class="device-card" id="motion-card">
+                    <h2>Motion Detector</h2>
+                    <div class="motion-controls">
+                        <button onclick="toggleMotionDetector()">Toggle Motion Detector</button>
+                        <div class="motion-settings">
+                            <label>
+                                <input type="checkbox" id="trigger-cctv"> Trigger CCTV
+                            </label>
+                            <label>
+                                <input type="checkbox" id="trigger-light"> Trigger Light
+                            </label>
+                        </div>
+                    </div>
+                    <div class="status">
+                        <p>Status: <span id="motion-status">Inactive</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Log Section -->
+            <div class="security-log">
+                <h2>Security Log</h2>
+                <div id="log-container"></div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
